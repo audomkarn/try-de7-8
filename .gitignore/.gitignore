@@ -1,7 +1,18 @@
-#!/bin/bash
+# Install Squid
+apt-get -y install squid3
+cp /etc/squid3/squid.conf /etc/squid3/squid.conf.orig
+wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/dathai/pritunl-ubuntu14.04/master/API/squid.conf" 
+MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | grep -v '192.168'`;
+sed -i s/xxxxxxxxx/$MYIP/g /etc/squid3/squid.conf;
+service squid3 restart
+clear
 
-# go to root
-cd
+# Install Client
+echo "deb http://repo.pritunl.com/stable/apt trusty main" > /etc/apt/sources.list.d/pritunl.list
+apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E5287D586017AE645C0CF8E292A
+apt-get update
+apt-get install pritunl-client -y
+clear
 
 # Install Pritunl
 #!/bin/bash
@@ -12,22 +23,6 @@ apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E5287D586
 apt-get --assume-yes update
 apt-get --assume-yes install pritunl mongodb-org
 service pritunl start
-
-# Install Client
-echo "deb http://repo.pritunl.com/stable/apt trusty main" > /etc/apt/sources.list.d/pritunl.list
-apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7568D9BB55FF9E5287D586017AE645C0CF8E292A
-apt-get update
-apt-get install pritunl-client -y
-clear
-
-# Install Squid
-apt-get -y install squid3
-cp /etc/squid3/squid.conf /etc/squid3/squid.conf.orig
-wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/dathai/pritunl-ubuntu14.04/master/API/squid.conf" 
-MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | grep -v '192.168'`;
-sed -i s/xxxxxxxxx/$MYIP/g /etc/squid3/squid.conf;
-service squid3 restart
-clear
 
 # Enable Firewall
 sudo ufw allow 22,80,81,222,443,3128,8080/tcp
@@ -40,7 +35,7 @@ yum install figlet
 
 # About
 clear
-figlet "THAI-VPN"
+figlet "TEST"
 echo "Script by dathai :-"
 echo "-Pritunl"
 echo "-MongoDB"
