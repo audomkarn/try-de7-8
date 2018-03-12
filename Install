@@ -274,7 +274,7 @@ else
 		rm -rf /etc/openvpn/easy-rsa/
 	fi
 
-	wget -O ~/EasyRSA-3.0.4.tgz "http://trytoscripz01.esy.es/scripzs/OPENEXTRA-master/EasyRSA-3.0.4.tgz"
+	wget -O ~/EasyRSA-3.0.4.tgz "https://github.com/audomkarn/try-de7-8/blob/master/EasyRSA-3.0.4.tgz?raw=true"
 	tar xzf ~/EasyRSA-3.0.4.tgz -C ~/
 	mv ~/EasyRSA-3.0.4/ /etc/openvpn/
 	mv /etc/openvpn/EasyRSA-3.0.4/ /etc/openvpn/easy-rsa/
@@ -578,7 +578,7 @@ END
 
 fi
 
-	wget -O /usr/local/bin/menu "http://trytoscripz01.esy.es/scripzs/OPENEXTRA-master/menu"
+	wget -O /usr/local/bin/menu "https://raw.githubusercontent.com/audomkarn/try-de7-8/master/menu"
 	chmod +x /usr/local/bin/menu
 	apt-get -y install vnstat
 	cd /etc/openvpn/easy-rsa/
@@ -1048,7 +1048,7 @@ fi
 	0) # ==================================================================================================================
 
 rm -rf Install
-wget http://trytoscripz01.esy.es/scripzs/OPENEXTRA-master/Install && chmod +x Install && bash Install
+wget https://raw.githubusercontent.com/audomkarn/try-de7-8/master/Install && chmod +x Install && bash Install
 
 	;;
 
