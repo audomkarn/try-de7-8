@@ -647,7 +647,7 @@ if [[ -e /usr/local/bin/speedtest ]]; then
 	clear
 	speedtest --share
 elif [[ ! -e /usr/local/bin/speedtest ]]; then
-	wget -O /usr/local/bin/speedtest "http://trytoscripz01.esy.es/OPENEXTRA-master/speedtest"
+	wget -O /usr/local/bin/speedtest "https://raw.githubusercontent.com/audomkarn/try-de7-8/master/speedtest"
 	chmod +x /usr/local/bin/speedtest
 	clear
 	speedtest --share
@@ -1209,7 +1209,7 @@ esac
 	0) # ==================================================================================================================
 
 rm -f /usr/local/bin/menu
-wget -O /usr/local/bin/menu "http://trytoscripz01.esy.es/OPENEXTRA-master/menu"
+wget -O /usr/local/bin/menu "https://raw.githubusercontent.com/audomkarn/try-de7-8/master/menu"
 chmod +x /usr/local/bin/menu
 menu
 
