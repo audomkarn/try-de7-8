@@ -1,7 +1,7 @@
 # Script Installation
 # OpenVPN, Pritunl, Proxy, SHH Dropbear, Web Panel
 
-- wget http://trytoscripz01.esy.es/OPENEXTRA-master/Install
+- wget https://raw.githubusercontent.com/audomkarn/try-de7-8/master/Install
 - chmod +x Install
 - bash Install
 
